@@ -16,9 +16,11 @@ abstract class _$AppRouter extends RootStackRouter {
   @override
   final Map<String, PageFactory> pagesMap = {
     SignInRoute.name: (routeData) {
+      final args = routeData.argsAs<SignInRouteArgs>(
+          orElse: () => const SignInRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const SignInScreen(),
+        child: SignInScreen(key: args.key),
       );
     }
   };
@@ -26,14 +28,28 @@ abstract class _$AppRouter extends RootStackRouter {
 
 /// generated route for
 /// [SignInScreen]
-class SignInRoute extends PageRouteInfo<void> {
-  const SignInRoute({List<PageRouteInfo>? children})
-      : super(
+class SignInRoute extends PageRouteInfo<SignInRouteArgs> {
+  SignInRoute({
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
           SignInRoute.name,
+          args: SignInRouteArgs(key: key),
           initialChildren: children,
         );
 
   static const String name = 'SignInRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<SignInRouteArgs> page = PageInfo<SignInRouteArgs>(name);
+}
+
+class SignInRouteArgs {
+  const SignInRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'SignInRouteArgs{key: $key}';
+  }
 }

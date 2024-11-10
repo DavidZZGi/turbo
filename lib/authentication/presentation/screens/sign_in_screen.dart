@@ -1,10 +1,15 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import '../../../app/utils/global/global_vars.dart';
+import '../widgets/widgets.dart';
 
 @RoutePage()
 class SignInScreen extends StatelessWidget {
-  const SignInScreen({super.key});
+  final TextEditingController email = TextEditingController();
+  final TextEditingController password = TextEditingController();
+  final TextEditingController name = TextEditingController();
+  SignInScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +17,7 @@ class SignInScreen extends StatelessWidget {
         appBar: AppBar(
             title: Column(
           children: [
-            SvgPicture.asset('assets/images/Turbo Marca 7.svg',
+            SvgPicture.asset(turboIconLogIn,
                 height: 50,
                 width: 50,
                 colorFilter: const ColorFilter.mode(
@@ -25,9 +30,9 @@ class SignInScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Center(
-                child: Text('Registrate para conocer personas de tu nicho'),
+                child: Text(loginHeaderText),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               ElevatedButton(
@@ -39,23 +44,40 @@ class SignInScreen extends StatelessWidget {
                         'assets/images/google.jpeg',
                         height: 20,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
-                      Text(' Registrate con google')
+                      const Text(googleSignInText)
                     ],
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Text('Or'),
-              Row(
-                children: [
-                  Divider(
-                    height: 2,
-                  ),
-                ],
-              )
+              const Text('Or'),
+              const SizedBox(
+                height: 10,
+              ),
+              CustomTextfield(
+                  label: emailText,
+                  textInputType: TextInputType.text,
+                  textController: email,
+                  hint: emailHintFormText),
+              const SizedBox(
+                height: 10,
+              ),
+              CustomTextfield(
+                  label: passwordText,
+                  textInputType: TextInputType.visiblePassword,
+                  textController: password,
+                  hint: passwordHintText),
+              const SizedBox(
+                height: 10,
+              ),
+              CustomTextfield(
+                  label: nameText,
+                  textInputType: TextInputType.text,
+                  textController: name,
+                  hint: nameHintText),
             ],
           ),
         ));

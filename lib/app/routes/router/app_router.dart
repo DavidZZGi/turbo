@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
 
 import 'package:turbo/app/routes/guards/authentication_guards.dart';
-import 'package:turbo/authentication/presentation/screens/sign_in_screen.dart';
-
+import 'package:turbo/authentication/presentation/screens/aut_screens.dart';
 part 'app_router.gr.dart';
 
 @AutoRouterConfig()

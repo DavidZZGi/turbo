@@ -1,0 +1,9 @@
+const String loginHeaderText = 'Register to meet people from you niche';
+const String googleSignInText = 'Register with Google';
+const String turboIconLogIn = 'assets/images/Turbo Marca 7.svg';
+const String emailText = 'Email';
+const String emailHintFormText = 'Please provide your email';
+const String passwordText = 'Password';
+const String passwordHintText = 'Please provide a strong password';
+const String nameText = 'Name';
+const String nameHintText = 'Tell us your name';

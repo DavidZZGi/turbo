@@ -11,7 +11,7 @@ class AuthGuard extends AutoRouteGuard {
     if (isAuthenticated) {
       resolver.next(); // Permitir la navegación
     } else {
-      router.push(const SignInRoute()); // Redirigir a SignIn si no autenticado
+      router.push(SignInRoute()); // Redirigir a SignIn si no autenticado
     }
   }
 }
