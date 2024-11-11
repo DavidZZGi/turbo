@@ -21,13 +21,13 @@ class CustomTextfield extends StatelessWidget {
       children: <Widget>[
         Text(
           label,
-          style: const TextStyle(fontSize: 17),
+          style: const TextStyle(fontSize: 15),
         ),
-        const SizedBox(height: 10.0),
+        const SizedBox(height: 4.0),
         Container(
           alignment: Alignment.center,
           decoration: Styles.kBoxDecorationStyle,
-          height: 60.0,
+          height: 50.0,
           child: TextFormField(
             keyboardType: textInputType,
             validator: (value) {

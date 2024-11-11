@@ -7,3 +7,5 @@ const String passwordText = 'Password';
 const String passwordHintText = 'Please provide a strong password';
 const String nameText = 'Name';
 const String nameHintText = 'Tell us your name';
+const String account = 'Already have an account?';
+const String noaccount = 'Do not have an account?';

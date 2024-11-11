@@ -21,7 +21,7 @@ class Styles {
   static const defaultScaffoldColor = Color(0xfffafafa);
   static const colorDanger = Color(0xffFF1100);
   static const colorRed = Color(0xffC11534);
-
+  static const turboRed = Color.fromARGB(255, 236, 64, 52);
   // light colors
   static const colorLightOutline = Color(0xff74777F);
   static const colorLightSecondary = Color(0xffC11534);
@@ -31,7 +31,7 @@ class Styles {
   static const colorLightOnSurfaceVariant = Color(0xff44474F);
   static const colorLightOnSurface = Color(0xff1B1B1D);
   static const colorLightOnBackground = Color(0xff1B1B1D);
-  static const colorLightBackground = Color(0xffFBFCFF);
+  static const colorLightBackground = Color.fromARGB(255, 253, 253, 253);
   static const colorLightOnLight = Color(0xffFFFFFF);
 
   static const backgroundColorLightTheme = Color(0xffFFFFFF);
@@ -110,10 +110,10 @@ class Styles {
   );
 
   static const textTitleMedium = TextStyle(
-    fontSize: 16,
+    fontSize: 15,
     fontFamily: 'Roboto',
     fontWeight: FontWeight.w500,
-    color: colorLightOnSurface,
+    color: Colors.black,
   );
 
   static const textLabelSmall = TextStyle(
@@ -123,10 +123,8 @@ class Styles {
     height: 1.42,
   );
 
-  static const textBodyMedium = TextStyle(
-    fontSize: 15,
-    fontFamily: 'Roboto',
-  );
+  static const textBodyMedium =
+      TextStyle(fontSize: 16, fontFamily: 'Roboto', color: Styles.turboRed);
 
   static const textDisplayMedium = TextStyle(
     fontSize: 32,
@@ -278,7 +276,7 @@ class Styles {
   static BoxDecoration kBoxDecorationStyle = BoxDecoration(
     color: Colors.white,
     border: Border.all(width: 1, color: colorLightGrey),
-    borderRadius: BorderRadius.circular(10.0),
+    borderRadius: BorderRadius.circular(30.0),
   );
 
   static const textH1Published = TextStyle(fontSize: 17, letterSpacing: 0.5);
