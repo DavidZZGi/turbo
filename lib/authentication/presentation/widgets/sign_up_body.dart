@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:turbo/app/routes/router/app_router.dart';
 import 'package:turbo/app/utils/global/global_vars.dart';
 
-import '../../../app/utils/style.dart';
+import '../../../app/utils/theme/style.dart';
 import 'widgets.dart';
 
 class SignUpBody extends StatelessWidget {

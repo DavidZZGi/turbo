@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:turbo/app/utils/global/global_vars.dart';
 
-import '../../../app/utils/style.dart';
+import '../../../app/utils/theme/style.dart';
 
 class LoginHeader extends StatelessWidget {
   const LoginHeader({super.key});

@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:turbo/app/utils/style.dart';
+import 'package:turbo/app/utils/theme/style.dart';
 import 'package:turbo/authentication/presentation/widgets/widgets.dart';
 
 import '../../../app/routes/router/app_router.dart';
@@ -44,7 +44,9 @@ class SignInScreen extends StatelessWidget {
             ElevatedButton(
                 style: const ButtonStyle(
                     backgroundColor: WidgetStatePropertyAll(Styles.turboRed)),
-                onPressed: () {},
+                onPressed: () {
+                  context.router.navigate(const FeedRoute());
+                },
                 child: const Text(
                   'Sign In',
                   style: TextStyle(

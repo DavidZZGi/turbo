@@ -7,11 +7,11 @@ part 'user_model.g.dart';
 @Freezed()
 @JsonSerializable()
 class User with _$User {
-  const factory User({
-    required String id,
-    required String name,
-    required String email,
-  }) = _User;
+  const factory User(
+      {required int id,
+      required String name,
+      required String email,
+      required String password}) = _User;
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 
