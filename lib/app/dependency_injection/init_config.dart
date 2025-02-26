@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:get_it/get_it.dart';
 import 'package:turbo/app/data/database_helper.dart';
+import 'package:turbo/authentication/module/authentication_module.dart';
+import 'package:turbo/authentication/state_managament/auth_cubit/cubit/auth_cubit_cubit.dart';
 
 import '../../authentication/authentication_repository/authentication_repository.dart';
 import '../../authentication/authentication_repository/service/authentication_service.dart';
@@ -26,5 +28,12 @@ FutureOr<void> initCore(GetIt sl) async {
     )
     ..registerLazySingleton<SignInCubit>(
       () => SignInCubit(signInUseCase: sl<SignInUseCase>()),
+    )
+    ..registerLazySingleton<AuthenticationModule>(
+      () => AuthenticationModule(
+          authenticationRepository: sl<AuthenticationRepository>()),
+    )
+    ..registerLazySingleton<AuthCubitCubit>(
+      () => AuthCubitCubit(authenticationModule: sl<AuthenticationModule>()),
     );
 }

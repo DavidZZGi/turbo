@@ -18,7 +18,7 @@ abstract class _$AppRouter extends RootStackRouter {
     FeedRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const FeedScreen(),
+        child: FeedScreen(),
       );
     },
     SignUpRoute.name: (routeData) {
@@ -35,6 +35,12 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: SignInScreen(key: args.key),
+      );
+    },
+    SplashRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const SplashScreen(),
       );
     },
   };
@@ -108,4 +114,18 @@ class SignInRouteArgs {
   String toString() {
     return 'SignInRouteArgs{key: $key}';
   }
+}
+
+/// generated route for
+/// [SplashScreen]
+class SplashRoute extends PageRouteInfo<void> {
+  const SplashRoute({List<PageRouteInfo>? children})
+      : super(
+          SplashRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SplashRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
