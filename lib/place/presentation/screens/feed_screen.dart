@@ -1,46 +1,51 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:turbo/app/routes/router/app_router.dart';
+import 'package:turbo/app/utils/global/global_vars.dart';
 
 import '../widgets/feed_widgets.dart';
 
 @RoutePage()
 class FeedScreen extends StatelessWidget {
+  const FeedScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      bottomNavigationBar: BottomNavBar(),
+      bottomNavigationBar: const BottomNavBar(),
       body: SafeArea(
         child: Container(
-          decoration: BoxDecoration(color: Color.fromRGBO(245, 245, 247, 0.6)),
+          decoration:
+              const BoxDecoration(color: Color.fromRGBO(245, 245, 247, 0.6)),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SearchBarWidget(),
-                SizedBox(height: 16),
-                Text(
-                  "Explore the beauty\nof our planet",
+                const SizedBox(height: 16),
+                const Text(
+                  "Explora los mejores \nlugares y negocios",
                   style: TextStyle(
-                    fontSize: 26,
+                    fontSize: 24,
                     fontWeight: FontWeight.bold,
                     color: Colors.black87,
                   ),
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 CategoryTabs(
-                  categories: [
-                    "Popular",
-                    "Hot offers",
-                    "Last minute",
-                    "More..."
+                  categories: const [
+                    "Populares",
+                    "Mejores Ofertas",
+                    "Trending",
+                    "Precio-Calidad",
                   ],
                   onCategorySelected: (index) {
                     print("Seleccionado: ${index}");
                   },
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Expanded(
                   child: ListView(
                     children: [
@@ -48,25 +53,17 @@ class FeedScreen extends StatelessWidget {
                         height: 260,
                         child: ListView(
                           scrollDirection: Axis.horizontal,
-                          children: [
-                            PlaceCard(
-                              imageUrl: "assets/images/mountains.jpg",
-                              title: "Chilly Mountains",
-                              description:
-                                  "Discover what rest really means at these beautiful, cold mountains.",
-                              price: "\$499",
-                            ),
-                            PlaceCard(
-                              imageUrl: "assets/images/japan.jpg",
-                              title: "Japanese Rest",
-                              description:
-                                  "Explore the fantastic cherry blossoms in Japan.",
-                              price: "\$399",
-                            ),
-                          ],
+                          children: places
+                              .map(
+                                (e) => InkWell(
+                                    onTap: () => context.router
+                                        .push(BusinessDetailsRoute(place: e)),
+                                    child: PlaceCard(place: e)),
+                              )
+                              .toList(),
                         ),
                       ),
-                      SizedBox(height: 16),
+                      const SizedBox(height: 16),
                       CategoriesSection(),
                     ],
                   ),

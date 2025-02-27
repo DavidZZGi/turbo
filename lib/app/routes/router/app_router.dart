@@ -5,7 +5,9 @@ import 'package:turbo/app/routes/guards/authentication_guards.dart';
 import 'package:turbo/authentication/presentation/screens/aut_screens.dart';
 
 import '../../../authentication/presentation/screens/splash_screen.dart';
-import '../../../feed/presentation/screens/feed_screen.dart';
+import '../../../place/place_repository/models/place/place.dart';
+import '../../../place/presentation/screens/business_detail.dart';
+import '../../../place/presentation/screens/feed_screen.dart';
 part 'app_router.gr.dart';
 
 @AutoRouterConfig()
@@ -32,6 +34,10 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
           page: SplashRoute.page,
           path: '/splash-screen',
+        ),
+        AutoRoute(
+          page: BusinessDetailsRoute.page,
+          path: '/business-detail',
         ),
       ];
 }

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:turbo/app/routes/guards/authentication_guards.dart';
 import 'package:turbo/authentication/state_managament/auth_cubit/cubit/auth_cubit_cubit.dart';
 import 'package:turbo/authentication/state_managament/sign_in_cubit/cubit/sign_in_cubit.dart';
+import 'package:turbo/place/state_management/place_bloc/cubit/place_cubit.dart';
 
 import '../../boostrap.dart';
 import '../routes/router/app_router.dart';
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider.value(value: sl<SignInCubit>()),
         BlocProvider.value(value: sl<AuthCubitCubit>()..isAuthenticated()),
+        BlocProvider.value(value: sl<PlaceCubit>()),
       ],
       child: const AppView(),
     );
