@@ -5,9 +5,9 @@ import 'package:turbo/app/routes/guards/authentication_guards.dart';
 import 'package:turbo/authentication/presentation/screens/aut_screens.dart';
 
 import '../../../authentication/presentation/screens/splash_screen.dart';
-import '../../../place/place_repository/models/place/place.dart';
-import '../../../place/presentation/screens/business_detail.dart';
-import '../../../place/presentation/screens/feed_screen.dart';
+import '../../../places/place_repository/models/place/place.dart';
+import '../../../places/presentation/screens/business_detail.dart';
+import '../../../places/presentation/screens/feed_screen.dart';
 part 'app_router.gr.dart';
 
 @AutoRouterConfig()
@@ -23,6 +23,7 @@ class AppRouter extends _$AppRouter {
           path: '/sign-up',
         ),
         AutoRoute(
+          // initial: true,
           page: SignInRoute.page,
           path: '/sign-in',
         ),

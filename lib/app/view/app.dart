@@ -3,14 +3,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:turbo/app/routes/guards/authentication_guards.dart';
 import 'package:turbo/authentication/state_managament/auth_cubit/cubit/auth_cubit_cubit.dart';
 import 'package:turbo/authentication/state_managament/sign_in_cubit/cubit/sign_in_cubit.dart';
-import 'package:turbo/place/state_management/place_bloc/cubit/place_cubit.dart';
+import 'package:turbo/places/state_management/place_bloc/cubit/place_cubit.dart';
 
 import '../../boostrap.dart';
+import '../../reviews/state_management/cubit/review_cubit.dart';
 import '../routes/router/app_router.dart';
+import '../utils/theme/turbo_theme.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,8 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider.value(value: sl<SignInCubit>()),
         BlocProvider.value(value: sl<AuthCubitCubit>()..isAuthenticated()),
-        BlocProvider.value(value: sl<PlaceCubit>()),
+        BlocProvider.value(value: sl<PlaceCubit>()..getPlaces()),
+        BlocProvider.value(value: sl<ReviewCubit>()),
       ],
       child: const AppView(),
     );
@@ -31,6 +33,7 @@ class AppView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      theme: TurboTheme.darkTheme,
       debugShowCheckedModeBanner: false,
       routerConfig:
           AppRouter(authGuard: AuthGuard(context.read<AuthCubitCubit>()))

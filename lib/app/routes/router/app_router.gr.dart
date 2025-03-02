@@ -15,22 +15,6 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    BusinessDetailsRoute.name: (routeData) {
-      final args = routeData.argsAs<BusinessDetailsRouteArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: BusinessDetailsScreen(
-          key: args.key,
-          place: args.place,
-        ),
-      );
-    },
-    FeedRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const FeedScreen(),
-      );
-    },
     SignUpRoute.name: (routeData) {
       final args = routeData.argsAs<SignUpRouteArgs>(
           orElse: () => const SignUpRouteArgs());
@@ -53,59 +37,23 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SplashScreen(),
       );
     },
+    BusinessDetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<BusinessDetailsRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: BusinessDetailsScreen(
+          key: args.key,
+          place: args.place,
+        ),
+      );
+    },
+    FeedRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const FeedScreen(),
+      );
+    },
   };
-}
-
-/// generated route for
-/// [BusinessDetailsScreen]
-class BusinessDetailsRoute extends PageRouteInfo<BusinessDetailsRouteArgs> {
-  BusinessDetailsRoute({
-    Key? key,
-    required Place place,
-    List<PageRouteInfo>? children,
-  }) : super(
-          BusinessDetailsRoute.name,
-          args: BusinessDetailsRouteArgs(
-            key: key,
-            place: place,
-          ),
-          initialChildren: children,
-        );
-
-  static const String name = 'BusinessDetailsRoute';
-
-  static const PageInfo<BusinessDetailsRouteArgs> page =
-      PageInfo<BusinessDetailsRouteArgs>(name);
-}
-
-class BusinessDetailsRouteArgs {
-  const BusinessDetailsRouteArgs({
-    this.key,
-    required this.place,
-  });
-
-  final Key? key;
-
-  final Place place;
-
-  @override
-  String toString() {
-    return 'BusinessDetailsRouteArgs{key: $key, place: $place}';
-  }
-}
-
-/// generated route for
-/// [FeedScreen]
-class FeedRoute extends PageRouteInfo<void> {
-  const FeedRoute({List<PageRouteInfo>? children})
-      : super(
-          FeedRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'FeedRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -174,6 +122,58 @@ class SplashRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SplashRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [BusinessDetailsScreen]
+class BusinessDetailsRoute extends PageRouteInfo<BusinessDetailsRouteArgs> {
+  BusinessDetailsRoute({
+    Key? key,
+    required Place place,
+    List<PageRouteInfo>? children,
+  }) : super(
+          BusinessDetailsRoute.name,
+          args: BusinessDetailsRouteArgs(
+            key: key,
+            place: place,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'BusinessDetailsRoute';
+
+  static const PageInfo<BusinessDetailsRouteArgs> page =
+      PageInfo<BusinessDetailsRouteArgs>(name);
+}
+
+class BusinessDetailsRouteArgs {
+  const BusinessDetailsRouteArgs({
+    this.key,
+    required this.place,
+  });
+
+  final Key? key;
+
+  final Place place;
+
+  @override
+  String toString() {
+    return 'BusinessDetailsRouteArgs{key: $key, place: $place}';
+  }
+}
+
+/// generated route for
+/// [FeedScreen]
+class FeedRoute extends PageRouteInfo<void> {
+  const FeedRoute({List<PageRouteInfo>? children})
+      : super(
+          FeedRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'FeedRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

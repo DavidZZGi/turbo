@@ -1,5 +1,5 @@
-import '../../../place/place_repository/models/place/place.dart';
-import '../../../place/place_repository/models/reviews_model/review.dart';
+import '../../../places/place_repository/models/place/place.dart';
+import '../../../reviews/review_repository/models/review.dart';
 
 const String loginHeaderText = 'Register to meet people from you niche';
 const String googleSignInText = 'Register with Google';
